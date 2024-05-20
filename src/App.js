@@ -16,15 +16,15 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('https://fakestoreapi.com/products/category/jewelery')
+    fetch('https://fakestoreapi.com/products')
       .then((response)=>
         response.json()
       .then((jewelery)=>this.setState(
-        ()=>{
+        ()=>{ // shallow merge function
         return {
           accessories: jewelery
         }
-      }, ()=>{
+      }, ()=>{ // updated state log
         console.log(this.state);
       }))
       )
@@ -34,6 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Accessories</h1>
+        <input className='search-box' type='search' placeholder='Search product' />
         {
           this.state.accessories.map((accessory)=>{
             return (
