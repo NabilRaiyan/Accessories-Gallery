@@ -12,6 +12,7 @@ class App extends Component {
       // name: {firstname: "Raiyan", lastname:"Al Sultan",},
       // age: 24,
       products: [],
+      searchField: '',
     };
   }
 
@@ -31,21 +32,24 @@ class App extends Component {
   }
 
   render(){
+
+    const filteredProduct = this.state.products.filter((product)=>{
+      return product.title.toLocaleLowerCase().includes(this.state.searchField); // return true if search input include the product title else return false
+    });
+
     return (
       <div className="App">
         <h1>Accessories</h1>
         {/* search box to search product */}
         <input className='search-box' type='search' placeholder='Search product' onChange={(event)=>{
-          const searchString = event.target.value.toLocaleLowerCase();
-          const filteredProduct = this.state.products.filter((product)=>{
-              return product.title.toLocaleLowerCase().includes(searchString); // return true if search input include the product title else return false
-          });
+          const searchField = event.target.value.toLocaleLowerCase();
+         
           this.setState(()=>{
-            return {products: filteredProduct};
+            return {searchField};
           });
         }} />
         {
-          this.state.products.map((product)=>{
+          filteredProduct.map((product)=>{
             return (
               <div key={product.id}>
                 <h3>{product.title}</h3>
