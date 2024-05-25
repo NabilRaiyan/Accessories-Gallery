@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import './App.css';
 import CardList from './components/card-list/card-list.component';
-
+import SearchBox from './components/search-field/searchBox.component';
 
 class App extends Component {
 
@@ -54,19 +54,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Accessories</h1>
-        {/* search box to search product */}
-        <input className='search-box' type='search' placeholder='Search product' onChange={onSearchChange} />
-        {/* {
-          filteredProduct.map((product)=>{
-            return (
-              <div key={product.id}>
-                <h3>{product.title}</h3>
-              </div>
-              )
-          })
-        } */}
-
-
+        <SearchBox onChangeHandler={onSearchChange}/>
         <CardList products = {filteredProduct}/>
       </div>
     );
