@@ -1,6 +1,7 @@
 
 import { Component } from 'react';
 import './App.css';
+import CardList from './components/card-list/card-list.component';
 
 
 class App extends Component {
@@ -55,7 +56,7 @@ class App extends Component {
         <h1>Accessories</h1>
         {/* search box to search product */}
         <input className='search-box' type='search' placeholder='Search product' onChange={onSearchChange} />
-        {
+        {/* {
           filteredProduct.map((product)=>{
             return (
               <div key={product.id}>
@@ -63,7 +64,10 @@ class App extends Component {
               </div>
               )
           })
-        }
+        } */}
+
+
+        <CardList products = {filteredProduct}/>
       </div>
     );
   }
