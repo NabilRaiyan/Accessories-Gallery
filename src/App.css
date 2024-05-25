@@ -13,3 +13,13 @@ body {
   );
   text-align: center;
 }
+
+.app-title{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(86, 86, 86);
+}
+
+span{
+  color: rgb(255, 136, 0);
+  font-family: fantasy;
+}
